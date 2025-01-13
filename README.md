@@ -24,7 +24,7 @@ Generate De Bruijn Sequence of a given length and subsequence length
 `n` is length of the subsequences
 ```
 papillon patt <len> <n>
-papilln patt 50 4
+papillon patt 50 4
 ```
 
 ### find
