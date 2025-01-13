@@ -7,6 +7,8 @@ This is a toolset for Hacking
 ### calc
 Calculate expression and convert a answer to Hexadecimal, Decimal and Binary
 
+Only four arithmetic operations are supported (+, -, *, /)
+
 `calc` require a specific prefix to specify the number. (Excluding Decimal)
 
 Hex: 0x, Bin: 0b
