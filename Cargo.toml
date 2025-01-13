@@ -1,0 +1,13 @@
+[package]
+name = "papillon"
+version = "0.1.0"
+edition = "2021"
+description = "Toolset for hacking"
+authors = ["Figaro-san"]
+
+[dependencies]
+clap = { version = "4.5.26", features = ["derive"] }
+colored = "3.0.0"
+meval = "0.2"
+regex = "1.11.1"
+
