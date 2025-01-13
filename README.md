@@ -34,6 +34,7 @@ Calculate the offset of subsequence in de_bruijn sequence
 
 `subsequence` is subsequence in `de_bruijn_sequence`
 ```
+papillon find <de_bruijn_sequence> <subsequence>
 papillon find AAAABAAACAAADAAAEAAAFAAAGAAAHAAAIAAAJAAAKAAALAAAMAAAN BAAA
 ```
 
