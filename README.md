@@ -5,7 +5,7 @@ This is a toolset for Hacking
 
 ## commands
 ### calc
-Calculate expression and convert a number to Hexadecimal, Decimal or Binary
+Calculate expression and convert a answer to Hexadecimal, Decimal and Binary
 
 `calc` require a specific prefix to specify the number. (Excluding Decimal)
 
