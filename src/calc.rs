@@ -80,9 +80,6 @@ pub fn display_number(num: u32) {
 }
 
 pub fn calc(str: &str) -> Result<u32, CalcError> {
-
-    papillon::print_banner();
-
     let expression = match parse_expression(str) {
         Ok(expr) => expr,
         Err(_) => {

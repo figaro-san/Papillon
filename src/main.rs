@@ -44,6 +44,9 @@ enum Commands {
 }
 
 fn main() {
+
+    papillon::print_banner();
+
     let cli = Cli::parse();
     
     match &cli.command {

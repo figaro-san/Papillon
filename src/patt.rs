@@ -60,9 +60,6 @@ pub fn gen_patt(len: usize, n: usize) -> Result<String, GenPattError> {
 }
 
 pub fn find_offset(sequence: &str, subsequence: &str) -> Result<usize, FindPattError> {
-
-    papillon::print_banner();
-
     match sequence.find(subsequence) {
         Some(offset) => {
             match offset.checked_sub(1) {
