@@ -36,7 +36,9 @@ enum Commands {
 
     /// Calculate the offset of subsequence in de_bruijn sequence
     Find {
+        /// Original sequence to calculate the offset of the location where subsequence exists
         de_bruijn_sequence: String,
+        /// subsequence is subsequence in `de_bruijn_sequence`
         subsequence: String,
     },
 }
