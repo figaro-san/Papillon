@@ -7,14 +7,9 @@ pub enum GenPattError {
 #[derive(Debug)]
 pub enum FindPattError {
     PatternNotFound,
-    NegativeOffset,
-
 }
 
 pub fn gen_patt(len: usize, n: usize) -> Result<String, GenPattError> {
-
-    papillon::print_banner();
-
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let k = alphabet.len();
     let mut a = vec![0; n*k];
@@ -61,16 +56,7 @@ pub fn gen_patt(len: usize, n: usize) -> Result<String, GenPattError> {
 
 pub fn find_offset(sequence: &str, subsequence: &str) -> Result<usize, FindPattError> {
     match sequence.find(subsequence) {
-        Some(offset) => {
-            match offset.checked_sub(1) {
-                Some(offset) => Ok(offset),
-                None => {
-                    Err(FindPattError::NegativeOffset)
-                }
-            }
-        }
-        None => {
-            Err(FindPattError::PatternNotFound)
-        }
+        Some(offset) => Ok(offset),
+        None => Err(FindPattError::PatternNotFound),
     }
 }

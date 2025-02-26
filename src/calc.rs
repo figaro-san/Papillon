@@ -58,19 +58,25 @@ fn parse_expression(input: &str) -> Result<String, CalcError> {
 }
 
 pub fn display_number(num: u32) {
-    let mut binary =format!("{:b}", num).to_string();
+    let mut binary = format!("{:b}", num).to_string();
+
+    // 8bit align
     let mut len = binary.len();
-    let padlen = (8-(len%8))%8;
+    let padlen = 8-(len%8);
     let mut pad = String::new();
     for _ in 0..padlen {
         pad.push('0');
     }
     binary.insert_str(0, pad.as_str());
 
+    // insert space for readaility
     len = binary.len();
-    if binary.len() > 8 {
-        for i in (8..len).step_by(8) {
-            binary.insert(i, ' ');
+    if len >= 16 {
+        let mut cnt = 8;
+        while cnt != len {
+            binary.insert(cnt, ' ');
+            cnt+=9;
+            len+=1;
         }
     }
 
