@@ -38,5 +38,16 @@ papillon find <de_bruijn_sequence> <subsequence>
 papillon find AAAABAAACAAADAAAEAAAFAAAGAAAHAAAIAAAJAAAKAAALAAAMAAAN BAAA
 ```
 
+### readelf
+This program is a degraded version of readelf.
+
+Currently, it only supports reading Little Endian ELF Header on x86-64 architecture.
+
+`filepath` is filepath to target binary.
+
+```
+papillon readelf </path/to/binary>
+```
+
 ## contribute
 Contributors are encouraged to submit Git pull requests to fix bugs and add new features
