@@ -7,7 +7,7 @@ use calc::CalcError;
 mod patt;
 use patt::{GenPattError, FindPattError};
 mod readelf;
-use readelf::{Elf64_Ehdr, Elf64ParseError};
+use readelf::Elf;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -104,38 +104,14 @@ fn main() {
 
         Commands::Readelf { filepath } => {
             let data = std::fs::read(filepath).unwrap();
-            let elf_header = match Elf64_Ehdr::parse_elf_header(&data) {
+            let elf = match Elf::parse_elf_header(&data) {
                 Ok(eh) => eh,
                 Err(err) => {
-                    match err {
-                        Elf64ParseError::NotElfFile => {
-                            eprintln!("[{}] File is not ELF format", "Error".red());
-                            exit(1);
-                        },
-
-                        Elf64ParseError::InvalidElfClass => {
-                            eprintln!("[{}] Invalid ELF class found", "Error".red());
-                            exit(1);
-                        },
-
-                        Elf64ParseError::InvalidEndian => {
-                            eprintln!("[{}] Invalid endian found", "Error".red());
-                            exit(1);
-                        },
-
-                        Elf64ParseError::InvalidElfVersion => {
-                            eprintln!("[{}] Invalid ELF version found", "Error".red());
-                            exit(1);
-                        },
-
-                        Elf64ParseError::InvalidObjectFileType => {
-                            eprintln!("[{}] Invalid Object file type found", "Error".red());
-                            exit(1);
-                        },
-                    }
+                    eprintln!("[{}] {}", "Error".red(), err);
+                    exit(1);
                 }
             };
-            elf_header.print_elf_header();
+            elf.print_elf_header();
         }
     }
 }
@@ -191,6 +167,6 @@ fn print_banner() {
                 text_color += 36;
             }
         }
-        println!("");
+        println!();
     }
 }
